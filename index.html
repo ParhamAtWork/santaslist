@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #146B3A;
+            
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #EA4630;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        li:hover {
+            background-color: #EA4630;
+        }
+        li.done {
+            text-decoration: line-through;
+            display:flex;
+            justify-content: center;
+        }
+        h1 {
+            color: #EA4630;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inputgroup {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎅Santa's Naughty List 🪨</h1>
+    <div class="inputgroup">
+    <input type="text" id="todoInput" placeholder="New Naughty Person">
+    <button onclick="addTask()">Add</button>
+        </div>
+    <ul id="todoList">
+    </ul>
+    
+
+    <script>
+        //alert("FOR SANTA'S EYES ONLY")
+        function addTask() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("todoInput").value;
+            var text = document.createTextNode(inputValue);
+            li.appendChild(text);
+            if (inputValue === '') {
+                alert("Try writing a name dummy");
+            }
+              else if (inputValue === 'a name dummy') {
+                alert("Very Funny")
+            } else {
+                document.getElementById("todoList").appendChild(li);
+            }
+            document.getElementById("todoInput").value = "";
+
+            li.onclick = function () {
+                this.classList.toggle('done');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
+
